@@ -10,3 +10,12 @@ exports.crearUsuario = async (req, res,next) => {
     }
 };
 
+exports.login = async (req, res,next) => {
+    try {
+        const user = req.body;
+        const result = await usuariosService.login(user);
+        res.status(200).json(result);
+    } catch (err) {
+        next(err); 
+    }
+};
